@@ -17,8 +17,9 @@ export default {
   },
   methods: {
     async callAPI() {
-      const items = await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/postcode=${this.postcode}?fields=allAddress?"apikey=wqONvEtiLiOZVNU0yukUK2ktQop7OtAdEBcSK9p"`);
-      this.address = items.data.allAddress;
+      const items = await axios.get(`https://apis.postcode-jp.com/api/v4/postcodes/${this.postcode}?fields=allAddress,?apikey=wqONvEtiLiOZVNU0yukUK2ktQop7OtAdEBcSK9p`);
+      console.log(items);
+      this.address = items.data[0].allAddress;
     }
   }
 }
